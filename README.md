@@ -212,3 +212,40 @@ Evaluates the mode shapes over the length of the beam (xx) and plots them.
 Plotting Mode Shapes:
 
 Displays the first three mode shapes graphically, illustrating how the beam would vibrate in each mode.
+
+The MATLAB function beam_vibration_ode45_armature simulates the dynamic response of a cantilever beam subject to an impulse load at its tip using numerical methods. The script is structured to model the physical behavior of the beam, solve the governing differential equations, and visualize the beam's response over time. Let's break down the script into its key components:
+
+Script Overview:
+Purpose: To analyze and visualize the vibration of a cantilever beam under an impulse load using numerical integration.
+Key Elements: Elastic modulus E, mass density rho, beam dimensions L, b, h, and the impulse load characteristics.
+Steps in the Script:
+Parameter Initialization:
+
+Sets the physical properties of the beam, including its material properties (elastic modulus and mass density), geometric dimensions (length, width, depth), area moment of inertia, and cross-sectional area.
+Matrix Formulation:
+
+Constructs the mass (M), stiffness (K), and damping (C) matrices. The stiffness matrix is adjusted for a cantilever beam, and Rayleigh damping is used to model energy dissipation.
+Time Span and Initial Conditions:
+
+Specifies the time span for the simulation and sets the initial conditions (zero displacement and velocity).
+ODE Solver (ode45):
+
+Uses MATLAB's ode45 function to numerically solve the ordinary differential equations (ODEs) governing the beam's vibration. The ODEs are defined in the beam_ode_impulse function.
+Fixed-End Boundary Conditions:
+
+Ensures that the displacement at the fixed end remains zero throughout the simulation.
+Deflection Visualization:
+
+Plots the deflection of the beam tip over time to visualize the vibration response.
+Animation Creation:
+
+Generates an animation of the beam's response to the impulse load. The animation is saved as an AVI file.
+beam_ode_impulse Function:
+Purpose: To define the system of ODEs for the beam's dynamic response.
+Key Operation: Incorporates an impulse load at the beam tip, represented by a high magnitude force applied for a very short duration.
+plot_beam Function:
+Purpose: To visualize the displacement of the beam at a specific time instance.
+Visualization: Scales the displacement for better visibility and plots the deformed shape of the beam.
+
+
+
