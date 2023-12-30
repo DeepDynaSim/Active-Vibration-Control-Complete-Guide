@@ -172,4 +172,43 @@ Results Display and Visualization:
 
 Displays the calculated displacements graphically, showing vertical displacement along the beam.
 
+cantileverbeammodeshape.m
 
+The MATLAB script provided performs a vibration analysis of a cantilever beam, a fundamental problem in structural dynamics and vibration engineering. The script uses a combination of symbolic and numerical computation to find natural frequencies and mode shapes of the beam. Let's examine the script in detail:
+
+Script Overview:
+Purpose: To analyze the vibration characteristics (natural frequencies and mode shapes) of a cantilever beam.
+Key Parameters: Elastic modulus E, mass density rho, beam length L, cross-sectional area A, and area moment of inertia I.
+Steps in the Script:
+Parameter Initialization:
+
+Defines the physical properties of the beam, such as elastic modulus, mass density, length, cross-sectional area, and area moment of inertia.
+Beta Calculation:
+
+Calculates beta, a parameter used in the definition of mode shapes, based on the beam's properties.
+Mode Shapes Definition:
+
+Defines the first three mode shapes of the cantilever beam as symbolic expressions in terms of x.
+Mass and Stiffness Matrices Computation:
+
+Initializes and calculates the mass (M) and stiffness (K) matrices by integrating the products of mode shapes and their derivatives. These matrices are essential in vibration analysis.
+Numerical Conversion and System Matrix Calculation:
+
+Converts the mass and stiffness matrices to numerical values (M_num, K_num).
+Computes the system matrix (C) by multiplying the inverse of the mass matrix with the stiffness matrix.
+Eigenvalue Problem and Natural Frequencies:
+
+Solves the eigenvalue problem for the system matrix to find the eigenvectors (V) and eigenvalues (D).
+Calculates natural frequencies (w) as the square root of the eigenvalues.
+Modal Matrix Normalization:
+
+Normalizes the eigenvectors to form a modal matrix (P), ensuring that the mode shapes are orthogonal with respect to the mass matrix.
+Results Display:
+
+Outputs the natural frequencies and the modal matrix.
+Mode Shape Visualization:
+
+Evaluates the mode shapes over the length of the beam (xx) and plots them.
+Plotting Mode Shapes:
+
+Displays the first three mode shapes graphically, illustrating how the beam would vibrate in each mode.
