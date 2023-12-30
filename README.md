@@ -347,4 +347,34 @@ Visualization:
 Plots the beam displacement over time using a 3D mesh plot.
 Animates the displacement of the beam over time in a 2D plot.
 
+The provided MATLAB script, allen_cahn_1D_spectral_crank_nicolson_optimized, simulates the 1D Allen-Cahn equation using an optimized spectral Crank-Nicolson method. This script is particularly geared towards generating a high-quality animation of the equation's time evolution. Let's break down the script into its key components:
 
+Script Overview:
+Purpose: To simulate the Allen-Cahn equation in 1D over a specified time interval using a spectral method for spatial discretization and the Crank-Nicolson scheme for time-stepping.
+Key Enhancements: Increased spatial resolution and number of frames for improved accuracy and smoother animation.
+Key Aspects of the Script:
+Grid and Initial Data Setup:
+
+Defines a spatial grid with a higher number of points (N = 512) for increased accuracy.
+Sets up initial data v based on a sinusoidal function.
+Time Interval and Damping Coefficients:
+
+Specifies the time interval tspan and calculates the time step dt.
+Introduces damping coefficients to simulate decay effects at the left and right sides of the domain.
+3D Plotting Preparation:
+
+Initializes matrices for 3D plotting and stores the initial state.
+Pseudo-Spectral Method Coefficients:
+
+Precomputes wavenumbers k and coefficients K for the spectral method, facilitating efficient computation.
+VideoWriter for Animation:
+
+Initializes a VideoWriter object for creating an MP4 animation of the simulation.
+Time-Stepping Loop:
+
+Implements the Crank-Nicolson scheme for time-stepping, enhanced with damping effects.
+Updates the 3D plot at each time step and captures the frame for the animation.
+Animation and Visualization:
+
+Produces an MP4 file (allen_cahn_animation.mp4) showing the time evolution of the Allen-Cahn equation.
+Provides visual feedback on the progress of the simulation through updated 3D plots.
