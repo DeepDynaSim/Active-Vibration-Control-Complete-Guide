@@ -378,3 +378,39 @@ Animation and Visualization:
 
 Produces an MP4 file (allen_cahn_animation.mp4) showing the time evolution of the Allen-Cahn equation.
 Provides visual feedback on the progress of the simulation through updated 3D plots.
+
+Robust Boundary Control Codes: 
+
+MATLAB script implements a numerical simulation of a Bernoulli-Euler beam undergoing vibration, incorporating a finite difference method (FDM) for spatial discretization and a Crank-Nicolson-like approach for time-stepping. This script includes an adjusted robust boundary control mechanism aimed at enhancing stability. Let's break down its key components and functionality:
+
+Script Overview:
+Purpose: To simulate the vibration of a Bernoulli-Euler beam under given initial conditions, external disturbances, and a specifically tailored boundary control scheme.
+Enhancements: Adjusted control gains and damping for stability, and optimized parameters for smoother animation and better visualization.
+Key Aspects of the Script:
+Parameter Initialization:
+
+Sets physical and geometric properties of the beam, including length, width, thickness, material properties, and linear mass density.
+Defines spatial (nx) and temporal (nt) discretization parameters and the simulation time frame (tf).
+Control Gains and Mesh Spacing:
+
+Adjusts control gains (k1, k2, k) to optimize the boundary control strategy.
+Calculates space (dx) and time (dt) steps based on the discretization parameters.
+Initial Conditions and Damping Coefficients:
+
+Applies initial deflection to the beam due to a tip payload (P), scaled down by a scaling_factor for stability.
+Sets a damping coefficient (alpha) based on the damping ratio and natural frequencies.
+Boundary and External Disturbances:
+
+Defines boundary disturbance d and external force distribution f along the beam.
+Time-Stepping and Boundary Control:
+
+Implements the time-stepping loop using a finite difference method, updating the beam's displacement at each time step.
+Applies a robust control law at a specific control point on the beam to regulate its vibration.
+Visualization and Animation:
+
+Visualizes the displacement of the beam over time using a mesh plot.
+Creates an animation of the beam's displacement, capturing and saving frames to an AVI file for a detailed dynamic view.
+Educational and Practical Significance:
+For Students and Researchers: This script serves as an illustrative tool for understanding the dynamics of vibrating beams, particularly in the context of control theory applied to mechanical systems.
+For Engineers: Useful in designing and analyzing control strategies for beam-like structures in various engineering applications, such as in mechanical, civil, or aerospace engineering.
+
