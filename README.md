@@ -106,6 +106,70 @@ The code is designed to be used with parameters like a 10-meter beam (L), a mome
 This realistic setup would allow users to analyze a beam's response under specified loading conditions, providing valuable insights into its structural behavior.
 
 
+The MATLAB function formStiffness_clampedbeam is designed to calculate the displacements of a clamped beam under a uniform load using the finite element method (FEM). Let's break down the code into its key components:
 
+Function Overview:
+Purpose: To compute the displacements of a clamped beam subjected to a uniform load.
+Inputs: Number of elements m, load per unit length P, Young's modulus E, and moment of inertia I.
+Output: A vector of displacements at each degree of freedom in the beam.
+Steps in formStiffness_clampedbeam:
+Initialization:
+
+Sets the length of the beam (L) to 1 meter.
+Generates node coordinates evenly spaced along the beam.
+Calculates the total number of degrees of freedom (GDof), considering two degrees of freedom per node (for bending in beams, typically vertical displacement and rotation).
+Matrix and Vector Initialization:
+
+Initializes the stiffness matrix (stiffness) and force vector (force) with zeros. The size of these matrices is based on the total degrees of freedom.
+Element Connectivity and Assembly:
+
+Loops over each element (m) to calculate and assemble the local stiffness matrix (k1) and force vector (f1) for each element.
+For each element, it identifies the local degrees of freedom (elementDof) and updates the global stiffness matrix and force vector accordingly.
+The local stiffness matrix is derived from beam theory (Euler-Bernoulli beam theory) and accounts for the bending stiffness of the beam segments.
+Boundary Conditions:
+
+Identifies the degrees of freedom that are constrained due to clamped conditions at both ends of the beam (prescribedDof).
+Determines the active degrees of freedom (activeDof) where the displacements are unknown and need to be solved.
+Solving for Displacements:
+
+Initializes the displacement vector (displacements) with zeros.
+Solves the system of linear equations for the active degrees of freedom to find the displacements. This is done by restricting the stiffness matrix and force vector to the active degrees of freedom and using matrix division.
+
+The MATLAB function formStiffness_simplysupportedbeam calculates the displacements and reactions of a simply supported beam under a uniformly distributed load using the Finite Element Method (FEM). Here's a detailed breakdown of its functionality:
+
+Function Overview:
+Purpose: To compute displacements and reactions for a simply supported beam under a uniform load.
+Inputs: Number of elements m, load per unit length P, beam length L, Young's modulus E, and moment of inertia I.
+Outputs: Stiffness matrix (stiffness), force vector (force), displacement vector (displacements), and reaction forces (reactions).
+Steps in formStiffness_simplysupportedbeam:
+Parameter Initialization:
+
+Sets up node coordinates along the beam based on the specified length L and number of elements m.
+Calculates the total degrees of freedom (GDof), accounting for both vertical displacement and rotation at each node.
+Matrix and Vector Initialization:
+
+Initializes the force vector, stiffness matrix, and displacement vector with zero values.
+Element Connectivity:
+
+Establishes the connectivity of the elements, identifying which nodes are connected by each element.
+Stiffness Matrix and Force Vector Assembly:
+
+Loops over each element, computing and assembling the local stiffness matrix and force vector for each element.
+The local stiffness matrix (k1) reflects the bending behavior of the beam elements.
+The force vector (f1) is calculated assuming a uniformly distributed load.
+Boundary Conditions Application:
+
+Applies boundary conditions specific to a simply supported beam, i.e., vertical displacement constraints at both ends of the beam.
+Identifies active degrees of freedom where displacements are unknown.
+Solving for Displacements:
+
+Solves the linear system for displacements at the active degrees of freedom.
+Updates the displacement vector with the computed values.
+Reaction Forces Calculation:
+
+Multiplies the stiffness matrix by the displacement vector to calculate the forces, and extracts the reaction forces at the prescribed degrees of freedom.
+Results Display and Visualization:
+
+Displays the calculated displacements graphically, showing vertical displacement along the beam.
 
 
