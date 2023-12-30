@@ -315,5 +315,36 @@ Plotting Resonant Frequencies:
 
 Focuses on the first four resonant frequencies and plots the amplitude response near these frequencies to illustrate resonance phenomena.
 
+bernoullieuler_beamvibration_FDM.m
+
+The provided MATLAB script is designed for simulating the vibration of a cantilever beam using the Finite Difference Method (FDM). The script includes parameters for the physical properties of the beam, applies boundary conditions, and visualizes the displacement of the beam over time. Here's a detailed breakdown of its key components:
+
+Script Overview:
+Purpose: To simulate and visualize the dynamic behavior of a cantilever beam under various loading conditions and boundary disturbances.
+Key Parameters: Includes physical properties of the beam like length L, width wd, thickness t, elastic modulus E, density rho, and others.
+Steps in the Script:
+Parameter Initialization:
+
+Sets the physical and geometric properties of the beam, including material properties, dimensions, mass density, damping ratio, and tip payload.
+Mesh Spacing and Time Step Computation:
+
+Calculates the spatial and temporal discretization parameters (dx and dt) for the finite difference method.
+Initial Conditions:
+
+Initializes the displacement w and disturbance d matrices and applies initial conditions reflecting the initial deflection due to the tip payload.
+Frequency and Damping Coefficients Calculation:
+
+Computes natural frequencies (w1, w2, ..., w6) and damping coefficient (ra) based on the physical parameters of the beam.
+Boundary Disturbance and External Forces:
+
+Defines the boundary disturbance d and external force distribution f along the beam.
+Main Loop for Time-stepping:
+
+Implements the finite difference method to update the displacement of the beam at each time step.
+Applies boundary conditions at the beam's tip.
+Visualization:
+
+Plots the beam displacement over time using a 3D mesh plot.
+Animates the displacement of the beam over time in a 2D plot.
 
 
