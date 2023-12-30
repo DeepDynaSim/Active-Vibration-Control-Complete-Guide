@@ -247,5 +247,73 @@ plot_beam Function:
 Purpose: To visualize the displacement of the beam at a specific time instance.
 Visualization: Scales the displacement for better visibility and plots the deformed shape of the beam.
 
+forcedbeamvibration.m
+
+The MATLAB script provided performs a numerical simulation of a cantilever beam undergoing vibrations. The beam's dynamic response to a harmonic driving force at one end is calculated using a discretized spatial domain and time-stepping method. Let's break down the key components of the script:
+
+Script Overview:
+Purpose: To simulate and analyze the vibrations of a cantilever beam under a harmonic driving force.
+Key Parameters: Elastic modulus E, second moment of inertia I, density rho, cross-sectional area S, beam length L, damping coefficient gamma, amplitude of oscillation z0, and frequency of oscillation w.
+Steps in the Script:
+Parameter Initialization:
+
+Sets the material and geometric properties of the beam, and the properties of the oscillation.
+Discretization:
+
+Defines the spatial (dz) and temporal (dt) discretization for the simulation.
+Initial Conditions:
+
+Sets initial deflection Fz and initial velocity Gz of the beam.
+Time-Stepping Simulation:
+
+Initializes the displacement matrix u and applies initial conditions.
+Uses a combination of central difference in space and forward Euler in time for the time-stepping process.
+Applies boundary conditions at each time step: a driven end with a harmonic force and a free end.
+Plotting Results:
+
+Visualizes the vibration of the beam over time using a mesh plot.
+Calculation of c:
+
+Calculates a constant c used in the eigenfrequency analysis.
+Eigenfrequency Analysis:
+
+Solves a transcendental equation to find roots (qRoots) using the function Delta.
+Calculates the eigenfrequencies of the beam based on the roots found.
+Display Eigenfrequencies:
+
+Outputs the calculated eigenfrequencies.
+
+eigenfrequency_amplitude.m
+
+
+This MATLAB script is designed to perform a frequency response analysis of a cantilever beam. It involves calculating the response amplitude at different frequencies and identifying the eigenfrequencies of the beam. Let's break down the script into its key components:
+
+Script Overview:
+Purpose: To analyze the amplitude response of a cantilever beam to a range of frequencies and to determine the beam's eigenfrequencies.
+Key Parameters: Elastic modulus E, second moment of inertia I, density rho, cross-sectional area S, beam length L, damping coefficient gamma, and amplitude z0 at z = 0.
+Steps in the Script:
+Parameter Initialization:
+
+Sets the material and geometric properties of the beam, along with the damping coefficient and the amplitude of oscillation at one end.
+Calculating c:
+
+Computes the constant c, a parameter combining the material and geometric properties of the beam.
+Frequency Response Calculation:
+
+Creates a frequency range (omega_range) and calculates the beam's response amplitude (A_omega) at each frequency. This involves computing a complex wave number (q) and using it to calculate the amplitude.
+Plotting Amplitude vs. Frequency:
+
+Visualizes the amplitude response of the beam across the specified frequency range.
+Eigenfrequency Analysis:
+
+Uses a transcendental equation (Delta) to find the roots (qRoots), which correspond to the eigenfrequencies of the beam.
+Vectorized calculation of the eigenfrequencies based on the roots found.
+Display Eigenfrequencies:
+
+Outputs the calculated eigenfrequencies.
+Plotting Resonant Frequencies:
+
+Focuses on the first four resonant frequencies and plots the amplitude response near these frequencies to illustrate resonance phenomena.
+
 
 
