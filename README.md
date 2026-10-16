@@ -25,6 +25,14 @@ addpath(pwd);
 edit beamdeflection.m
 ```
 
+A numerical example that does not require symbolic variables is:
+
+```matlab
+[tip, slope, displacement] = beamdeflection_alternative(1500, 210e9, 3, 0.15, 'circle');
+```
+
+Use SI inputs: force in newtons, modulus in pascals, and lengths in metres. In this function the circular width is the diameter; the rectangular case uses a square section (`I=width^4/12`). The returned tip displacement is in metres and the small-angle tip slope is dimensionless. Requesting outputs avoids creating a plot. Function examples such as `beamdeflection_fdm` require their documented input arguments, whereas the `mainscript_*` files are scripts.
+
 The examples support simulation and education. Compare discretization, boundary conditions and numerical convergence before transferring a model to an engineering application. The detailed walkthroughs below describe individual files.
 
 ## Detailed notes
